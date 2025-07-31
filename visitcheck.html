@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VisitCheck - Control de Visitas</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background-color: #004ba0;
+      color: white;
+      padding: 1rem;
+    }
+    iframe {
+      width: 100%;
+      height: calc(100vh - 120px);
+      border: none;
+    }
+    .back-button {
+      display: inline-block;
+      margin: 10px 0;
+      padding: 8px 16px;
+      background-color: #f5f5f5;
+      color: #004ba0;
+      border: 1px solid #004ba0;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    .back-button:hover {
+      background-color: #004ba0;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>VisitCheck - Control de Visitas</h1>
+    <p>Recibiendo tu ubicación GPS...</p>
+  </header>
+
+  <p>
+    <a href="index.html" class="back-button">⬅ Volver al Menú</a>
+  </p>
+
+  <iframe id="jot"
+    src="https://form.jotform.com/251687013967668?latitud=0&longitud=0"
+    allow="geolocation"
+    loading="lazy">
+  </iframe>
+
+  <script>
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(pos) {
+        const lat = pos.coords.latitude;
+        const lng = pos.coords.longitude;
+        const iframe = document.getElementById('jot');
+        const srcBase = iframe.src.split('?')[0];
+        iframe.src = `${srcBase}?latitud=${lat}&longitud=${lng}`;
+      }, function(err) {
+        console.warn('No se pudo obtener la ubicación:', err);
+      });
+    } else {
+      console.warn('El navegador no soporta geolocalización.');
+    }
+  </script>
+</body>
+</html>
 
