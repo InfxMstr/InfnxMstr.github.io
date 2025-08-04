@@ -27,7 +27,8 @@ Este proyecto es una **plataforma web ligera y gratuita** montada en **GitHub Pa
    - Captura geolocalización y pasa los datos mediante **parámetros URL**:  
      - `latitud`
      - `longitud`
-   - Fondo blanco con botón futurista pequeño para regresar al menú principal.
+   - Fondo blanco.
+   - Botón **“Regresar al WorkHub”** ubicado al **final del scroll**, centrado horizontalmente.
 
 ---
 
@@ -38,7 +39,8 @@ Este proyecto es una **plataforma web ligera y gratuita** montada en **GitHub Pa
      - `latitud_1`
      - `longitud_1`
    - **Permisos de cámara** habilitados para funcionalidades del formulario (ej. escáner QR o fotos).  
-   - Fondo blanco con botón futurista pequeño para regresar al menú principal.
+   - Fondo blanco.
+   - Botón **“Regresar al WorkHub”** ubicado al **final del scroll**, centrado horizontalmente.
 
 ---
 
@@ -46,7 +48,8 @@ Este proyecto es una **plataforma web ligera y gratuita** montada en **GitHub Pa
    - Formulario **Verificador IMEIS** embebido:  
      `https://form.jotform.com/222794064103047`  
    - No requiere geolocalización ni cámara.  
-   - Fondo blanco con botón futurista pequeño para regresar al menú principal.
+   - Fondo blanco.
+   - Botón **“Regresar al WorkHub”** ubicado al **final del scroll**, centrado horizontalmente.
 
 ---
 
@@ -85,7 +88,7 @@ Este proyecto es una **plataforma web ligera y gratuita** montada en **GitHub Pa
    - **Visit Check** → formulario con geolocalización (latitud/longitud).  
    - **Creación POS** → formulario con geolocalización (latitud_1/longitud_1) y cámara.  
    - **Verificador IMEIS** → formulario sin geolocalización.  
-3. Puede regresar al menú mediante el botón en cada subpágina.
+3. Completa el formulario y puede regresar al menú mediante el botón al final del scroll.
 
 ---
 
