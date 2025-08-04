@@ -18,7 +18,7 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      font-weight: 700; /* Bold */
+      font-weight: 700;
       height: 100vh;
       display: flex;
       justify-content: center;
@@ -63,7 +63,7 @@
       margin-bottom: 3rem; /* Espacios después del título */
     }
 
-    /* BOTONES ENLACES */
+    /* BOTONES ENLACES ESTILO MEJORADO */
     a {
       display: block;
       width: 100%;
@@ -73,13 +73,15 @@
       color: white;
       text-decoration: none;
       font-size: 1.1rem;
-      border-radius: 8px;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      border-radius: 50px; /* Bordes tipo pill */
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
 
     a:hover {
-      background-color: #008b59;
-      transform: scale(1.02);
+      background-color: #00c77c;
+      box-shadow: 0 0 12px #00ff9d, 0 0 24px #00ff9d; /* Glow verde */
+      transform: scale(1.05); /* Efecto de crecimiento */
     }
 
     /* TEXTO DE VERSIÓN EN LA ESQUINA INFERIOR DERECHA */
