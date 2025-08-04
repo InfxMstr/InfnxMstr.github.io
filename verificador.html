@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Verificador de IMEIS</title>
+  <title>WorkHub IR – INFINIX</title>
 
   <!-- Fuente Montserrat Bold -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
@@ -20,11 +20,13 @@
       font-weight: 700;
       height: 100vh;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       color: white;
     }
 
-    /* Fondo unificado */
+    /* Fondo */
     body::before {
       content: "";
       position: fixed;
@@ -47,19 +49,39 @@
       z-index: -1;
     }
 
-    header {
-      background-color: rgba(0, 176, 111, 0.85);
-      padding: 1rem;
-      text-align: center;
-      font-size: 1.2rem;
+    .container {
+      width: 90%;
+      max-width: 400px;
     }
 
-    iframe {
+    /* Título */
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 3rem;
+    }
+
+    /* Botones con degradado */
+    a {
+      display: block;
       width: 100%;
-      flex: 1;
-      border: none;
+      padding: 1rem;
+      margin: 0.8rem auto;
+      background: linear-gradient(135deg, rgba(0, 176, 111, 0.85), rgba(0, 255, 157, 0.65));
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
+    a:hover {
+      background: linear-gradient(135deg, rgba(0, 255, 157, 0.85), rgba(0, 176, 111, 0.75));
+      box-shadow: 0 0 14px #00ff9d, 0 0 28px #00ff9d;
+      transform: scale(1.05);
+    }
+
+    /* Texto versión */
     .version {
       position: fixed;
       bottom: 10px;
@@ -68,17 +90,24 @@
       font-style: italic;
       opacity: 0.8;
     }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+      a {
+        font-size: 1rem;
+        padding: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
-    Verificador de IMEIS
-  </header>
-
-  <iframe
-    src="https://form.jotform.com/222794064103047"
-    loading="lazy">
-  </iframe>
+  <div class="container">
+    <h1>WorkHub IR – INFINIX</h1>
+    <a href="visitcheck.html">VisitCheck - Control de Visitas</a>
+    <a href="verificador.html">Verificador de IMEIS</a>
+  </div>
 
   <div class="version">V.3.01</div>
 </body>
