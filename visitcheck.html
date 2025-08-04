@@ -4,49 +4,76 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>VisitCheck - Control de Visitas</title>
+
+  <!-- Fuente Montserrat Bold -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      font-family: sans-serif;
+    * {
       margin: 0;
       padding: 0;
-      text-align: center;
+      box-sizing: border-box;
     }
-    header {
-      background-color: #004ba0;
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
       color: white;
-      padding: 1rem;
     }
+
+    /* Fondo unificado */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('Fondo_Index.png') center/cover no-repeat;
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: -1;
+    }
+
+    header {
+      background-color: rgba(0, 176, 111, 0.85);
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
     iframe {
       width: 100%;
-      height: calc(100vh - 120px);
+      flex: 1;
       border: none;
     }
-    .back-button {
-      display: inline-block;
-      margin: 10px 0;
-      padding: 8px 16px;
-      background-color: #f5f5f5;
-      color: #004ba0;
-      border: 1px solid #004ba0;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 1rem;
-    }
-    .back-button:hover {
-      background-color: #004ba0;
-      color: white;
+
+    .version {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 0.8rem;
+      font-style: italic;
+      opacity: 0.8;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>VisitCheck - Control de Visitas</h1>
-    <p>Recibiendo tu ubicación GPS...</p>
+    VisitCheck - Control de Visitas
   </header>
-
-  <p>
-    <a href="index.html" class="back-button">⬅ Volver al Menú</a>
-  </p>
 
   <iframe id="jot"
     src="https://form.jotform.com/251687013967668?latitud=0&longitud=0"
@@ -54,7 +81,10 @@
     loading="lazy">
   </iframe>
 
+  <div class="version">V.3.01</div>
+
   <script>
+    // Geolocalización para prellenar coordenadas
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(pos) {
         const lat = pos.coords.latitude;
@@ -71,4 +101,3 @@
   </script>
 </body>
 </html>
-
