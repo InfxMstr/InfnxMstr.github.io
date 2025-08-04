@@ -36,10 +36,29 @@ Proyecto web ligero para centralizar formularios internos usando **JotForm** y a
 
 ---
 
-## **Notas**
-- Versión actual del sistema: **V.3.01**
-- Siguiente mejora sugerida (opcional):  
-  - Crear versión móvil del fondo más ligera y cargar según dispositivo.
+## **¿Cuenta el peso del formulario embebido en el tráfico?**
+
+**No.**  
+- Los formularios JotForm se cargan dentro de un **iframe**.  
+- Esto significa que el tráfico y los recursos del formulario provienen de los **servidores de JotForm**, no de GitHub Pages.  
+- Solo el peso de tus archivos alojados en GitHub (HTML, CSS, imágenes) cuenta para el límite mensual de 100 GB.
+
+---
+
+## **Diagrama de flujo del tráfico**
+
+Usuario
+│
+▼
+GitHub Pages (Index / VisitCheck / Verificador)
+│ (Solo HTML + fondo WebP)
+▼
+JotForm (Formulario embebido en iframe)
+│ (Carga de scripts, cámara, geolocalización)
+▼
+Base de datos JotForm
+
+
 
 ---
 
@@ -48,6 +67,13 @@ Proyecto web ligero para centralizar formularios internos usando **JotForm** y a
 2. Elegir **Branch: main** y carpeta raíz `/ (root)`
 3. Guardar → Esperar 1-2 minutos
 4. Acceder vía: `https://<usuario>.github.io/<repositorio>/`
+
+---
+
+## **Notas**
+- Versión actual del sistema: **V.3.01**
+- Siguiente mejora sugerida (opcional):  
+  - Crear versión móvil del fondo más ligera y cargar según dispositivo.
 
 ---
 
