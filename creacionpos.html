@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Creación POS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    iframe {
+      width: 100%;
+      height: calc(100vh - 60px);
+      border: none;
+    }
+    .back-button {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 255, 100, 0.2);
+      border: 1px solid #00ff88;
+      color: #00ff88;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.8rem;
+      border-radius: 8px;
+      text-decoration: none;
+      backdrop-filter: blur(5px);
+    }
+    .back-button:hover {
+      background: rgba(0, 255, 100, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <iframe id="jot"
+    src="https://form.jotform.com/251146528825662?latitud_1=0&longitud_1=0"
+    allow="geolocation; camera"
+    loading="lazy">
+  </iframe>
+
+  <a class="back-button" href="index.html">Regresar al WorkHub</a>
+
+  <script>
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(pos) {
+        const lat = pos.coords.latitude;
+        const lng = pos.coords.longitude;
+        const iframe = document.getElementById('jot');
+        const srcBase = iframe.src.split('?')[0];
+        iframe.src = `${srcBase}?latitud_1=${lat}&longitud_1=${lng}`;
+      }, function(err) {
+        console.warn('No se pudo obtener la ubicación:', err);
+      });
+    } else {
+      console.warn('El navegador no soporta geolocalización.');
+    }
+  </script>
+</body>
+</html>
