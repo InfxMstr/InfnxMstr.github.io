@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>WorkHub IR – INFINIX</title>
 
-  <!-- Importar Montserrat Bold desde Google Fonts -->
+  <!-- Fuente Montserrat Bold -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
   <style>
-    /* RESET BÁSICO */
     * {
       margin: 0;
       padding: 0;
@@ -27,7 +26,7 @@
       color: white;
     }
 
-    /* FONDO CON TU IMAGEN LOCAL */
+    /* Fondo */
     body::before {
       content: "";
       position: fixed;
@@ -39,7 +38,6 @@
       z-index: -2;
     }
 
-    /* CAPA OSCURA PARA CONTRASTE */
     body::after {
       content: "";
       position: fixed;
@@ -51,40 +49,39 @@
       z-index: -1;
     }
 
-    /* CONTENEDOR PRINCIPAL */
     .container {
       width: 90%;
       max-width: 400px;
     }
 
-    /* TITULO */
+    /* Título */
     h1 {
       font-size: 1.8rem;
-      margin-bottom: 3rem; /* Espacios después del título */
+      margin-bottom: 3rem;
     }
 
-    /* BOTONES ENLACES ESTILO MEJORADO */
+    /* Botones con degradado */
     a {
       display: block;
       width: 100%;
       padding: 1rem;
       margin: 0.8rem auto;
-      background-color: #00b06f;
+      background: linear-gradient(135deg, rgba(0, 176, 111, 0.85), rgba(0, 255, 157, 0.65));
       color: white;
       text-decoration: none;
       font-size: 1.1rem;
-      border-radius: 50px; /* Bordes tipo pill */
+      border-radius: 50px;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
     a:hover {
-      background-color: #00c77c;
-      box-shadow: 0 0 12px #00ff9d, 0 0 24px #00ff9d; /* Glow verde */
-      transform: scale(1.05); /* Efecto de crecimiento */
+      background: linear-gradient(135deg, rgba(0, 255, 157, 0.85), rgba(0, 176, 111, 0.75));
+      box-shadow: 0 0 14px #00ff9d, 0 0 28px #00ff9d;
+      transform: scale(1.05);
     }
 
-    /* TEXTO DE VERSIÓN EN LA ESQUINA INFERIOR DERECHA */
+    /* Texto versión */
     .version {
       position: fixed;
       bottom: 10px;
@@ -94,7 +91,6 @@
       opacity: 0.8;
     }
 
-    /* OPTIMIZACIÓN PARA SMARTPHONES */
     @media (max-width: 480px) {
       h1 {
         font-size: 1.5rem;
@@ -113,8 +109,6 @@
     <a href="verificador.html">Verificador de IMEIS</a>
   </div>
 
-  <div class="version">
-    V.3.01
-  </div>
+  <div class="version">V.3.01</div>
 </body>
 </html>
