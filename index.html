@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Menú de Formularios</title>
+  <title>WorkHub IR – INFINIX</title>
 
   <!-- Importar Montserrat Bold desde Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
@@ -60,12 +60,7 @@
     /* TITULO */
     h1 {
       font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1rem;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem; /* Espacios después del título */
     }
 
     /* BOTONES ENLACES */
@@ -87,13 +82,20 @@
       transform: scale(1.02);
     }
 
+    /* TEXTO DE VERSIÓN EN LA ESQUINA INFERIOR DERECHA */
+    .version {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 0.8rem;
+      font-style: italic;
+      opacity: 0.8;
+    }
+
     /* OPTIMIZACIÓN PARA SMARTPHONES */
     @media (max-width: 480px) {
       h1 {
         font-size: 1.5rem;
-      }
-      p {
-        font-size: 0.95rem;
       }
       a {
         font-size: 1rem;
@@ -104,10 +106,13 @@
 </head>
 <body>
   <div class="container">
-    <h1>Bienvenido</h1>
-    <p>Selecciona el formulario que deseas completar:</p>
+    <h1>WorkHub IR – INFINIX</h1>
     <a href="visitcheck.html">VisitCheck - Control de Visitas</a>
     <a href="verificador.html">Verificador de IMEIS</a>
+  </div>
+
+  <div class="version">
+    V.3.01
   </div>
 </body>
 </html>
