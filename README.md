@@ -1,41 +1,73 @@
 # WorkHub IR – INFINIX
 
-Este es un hub web optimizado para **smartphones**, que centraliza 4 herramientas clave para el equipo de trabajo de INFINIX.  
-Diseñado con **estética futurista**, **fuente Montserrat Bold**, y navegación sencilla.
+Versión actual: **V.3.01**
 
-## 📌 Páginas incluidas
+Proyecto web gratuito alojado en **GitHub Pages** para centralizar accesos a formularios Jotform usados en la operación de Infinix Mobility en Colombia. El sistema incluye integración con **geolocalización GPS** y permisos de cámara cuando es necesario.
 
-1. **Visit Check** → Registro con georreferenciación y cámara habilitada.  
-   URL: `/visitcheck.html`  
-   Formulario: [https://form.jotform.com/251687013967668](https://form.jotform.com/251687013967668)
+---
 
-2. **Creación de Punto de Venta** → Registro de nuevos POS con georreferenciación.  
-   URL: `/creacionpos.html`  
-   Formulario: [https://form.jotform.com/251146528825662](https://form.jotform.com/251146528825662)  
-   Campos georreferencia: `latitud_1`, `longitud_1`.
+## 📂 Estructura de páginas
 
-3. **Verificador de IMEIS** → Validación de códigos IMEI con opción de escaneo QR.  
-   URL: `/verificador.html`  
-   Formulario: [https://form.jotform.com/222794064103047](https://form.jotform.com/222794064103047)
+### **1. Index (Página principal)**
+- **Fondo:** Imagen `Fondo_Index.webp` con `background: center/cover no-repeat`.
+- **Tipografía:** Fuente **Montserrat** peso 700 (negrita) importada desde Google Fonts.
+- **Botones:**  
+  1. **Visit Check** → `visitcheck.html`  
+  2. **Creación POS** → `creacionpos.html`  
+  3. **Verificador IMEIS** → `verificador.html`  
+  4. **Control de Sell Out** → `controlsellout.html`  
 
-4. **Control de Sell Out** → Seguimiento de ventas.  
-   URL: `/controlsellout.html`  
-   Formulario: [https://form.jotform.com/243044313856656](https://form.jotform.com/243044313856656)
+  **Estilo botones:**  
+  - Degradado verde (`#00ff88` → `#006644`).  
+  - Bordes redondeados de 12px.  
+  - Sombra verde.  
+  - Hover: aumenta escala y sombra.  
 
-## 📷 Imagen de fondo
-- Solo el `index.html` tiene fondo.
-- Archivo: `Fondo_Index.webp` (optimizado para web, formato WebP para menor peso y mayor compresión sin pérdida perceptible).
+- **Versión:** Texto pequeño (`0.75rem`) en esquina inferior derecha, color `#aaa`, estilo *italic*.
 
-## 📊 Optimización
-- Código adaptado para **bajo peso**.
-- Las páginas secundarias usan **fondo plano blanco** para velocidad y contraste.
-- Formularios embebidos no afectan el límite de ancho de banda de GitHub Pages.
-- Estimado de tráfico permitido: ~100GB/mes → suficiente para miles de visitas.
+---
 
-## 🚀 Uso
-1. Subir todos los archivos `.html` y `Fondo_Index.png` al repositorio.
-2. Habilitar **GitHub Pages** desde la configuración del repositorio.
-3. Acceder desde la URL pública generada por GitHub Pages.
+### **2. VisitCheck**
+- **Formulario:** [https://form.jotform.com/251687013967668](https://form.jotform.com/251687013967668)  
+- **Permisos iframe:** `allow="geolocation"`.
+- **Geolocalización:** Script obtiene `latitud` y `longitud` y los pasa como parámetros a la URL del formulario.
+- **Fondo:** Blanco (`#fff`).
+- **Botón de regreso:**  
+  - Texto: `"Regresar al WorkHub"`.  
+  - Estilo: `inline-block`, margen vertical, fondo `rgba(0, 255, 100, 0.1)`, borde `#00ff88`, texto `#00aa55`, padding pequeño, bordes redondeados 8px, `backdrop-filter: blur(5px)`, hover con más opacidad.
 
-## 📅 Versión actual
-V.3.01
+---
+
+### **3. Creación POS**
+- **Formulario:** (por definir en producción).  
+- **Permisos iframe:** `allow="geolocation; camera"`.
+- **Geolocalización:** Script obtiene `latitud_1` y `longitud_1` como parámetros.
+- **Estilo de página y botón:** Igual a VisitCheck.
+
+---
+
+### **4. Verificador de IMEIS**
+- **Formulario:** [https://form.jotform.com/222794064103047](https://form.jotform.com/222794064103047)  
+- **Permisos iframe:** `allow="camera"`.
+- **Sin geolocalización**.
+- **Estilo de página y botón:** Igual a VisitCheck.
+
+---
+
+### **5. Control de Sell Out**
+- **Formulario:** [https://form.jotform.com/243044313856656](https://form.jotform.com/243044313856656) ✅ **(Formulario real actualizado)**  
+- **Permisos iframe:** `allow="camera"`.
+- **Sin geolocalización**.
+- **Estilo de página y botón:** Igual a VisitCheck.
+
+---
+
+## 🖥️ Lógica de geolocalización
+Se usa `navigator.geolocation.getCurrentPosition` para capturar coordenadas y reconstruir la URL del iframe agregando los parámetros requeridos:
+```javascript
+navigator.geolocation.getCurrentPosition(function(pos) {
+  var lat = pos.coords.latitude;
+  var lon = pos.coords.longitude;
+  var iframe = document.getElementById('formulario');
+  iframe.src = `FORM_URL?latitud=${lat}&longitud=${lon}`;
+});
