@@ -39,7 +39,7 @@ Proyecto web gratuito alojado en **GitHub Pages** para centralizar accesos a for
 ---
 
 ### **3. Creación POS**
-- **Formulario:** (por definir en producción).  
+- **Formulario:** [https://form.jotform.com/251146528825662](https://form.jotform.com/251146528825662).  
 - **Permisos iframe:** `allow="geolocation; camera"`.
 - **Geolocalización:** Script obtiene `latitud_1` y `longitud_1` como parámetros.
 - **Estilo de página y botón:** Igual a VisitCheck.
@@ -55,7 +55,7 @@ Proyecto web gratuito alojado en **GitHub Pages** para centralizar accesos a for
 ---
 
 ### **5. Control de Sell Out**
-- **Formulario:** [https://form.jotform.com/243044313856656](https://form.jotform.com/243044313856656) ✅ **(Formulario real actualizado)**  
+- **Formulario:** [https://form.jotform.com/243044313856656](https://form.jotform.com/243044313856656) 
 - **Permisos iframe:** `allow="camera"`.
 - **Sin geolocalización**.
 - **Estilo de página y botón:** Igual a VisitCheck.
