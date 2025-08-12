@@ -24,7 +24,7 @@ Diseñado con **estética futurista**, **fuente Montserrat Bold**, y navegación
 
 ## 📷 Imagen de fondo
 - Solo el `index.html` tiene fondo.
-- Archivo: `Fondo_Index.png` (optimizado para web, recomendado formato WebP en futuro).
+- Archivo: `Fondo_Index.webp` (optimizado para web, formato WebP para menor peso y mayor compresión sin pérdida perceptible).
 
 ## 📊 Optimización
 - Código adaptado para **bajo peso**.
