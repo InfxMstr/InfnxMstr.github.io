@@ -47,8 +47,8 @@
   <script>
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(pos) {
-        const lat = pos.coords.latitude;
-        const lng = pos.coords.longitude;
+        const lat = "'" + pos.coords.latitude;
+        const lng = "'" + pos.coords.longitude;
         const iframe = document.getElementById('jot');
         const srcBase = iframe.src.split('?')[0];
         iframe.src = `${srcBase}?latitud=${lat}&longitud=${lng}`;
