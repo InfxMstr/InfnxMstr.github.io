@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visit Check</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      text-align: center;
+    }
+    iframe {
+      width: 100%;
+      height: 90vh;
+      border: none;
+    }
+    .back-button {
+      display: inline-block;
+      margin: 15px auto 20px auto;
+      background: rgba(0, 255, 100, 0.1);
+      border: 1px solid #00ff88;
+      color: #00aa55;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.8rem;
+      border-radius: 8px;
+      text-decoration: none;
+      backdrop-filter: blur(5px);
+    }
+    .back-button:hover {
+      background: rgba(0, 255, 100, 0.2);
+    }
+    #loading-message {
+      margin-top: 40px;
+      font-size: 1rem;
+      color: #888;
+    }
+    #iframe-container {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="loading-message">Cargando ubicación…</div>
+  <div id="iframe-container"></div>
+
+  <a class="back-button" href="index.html">Regresar al WorkHub</a>
+
+  <script>
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(pos) {
+        const lat = "lat" + pos.coords.latitude;
+        const lng = "lng" + pos.coords.longitude;
+
+        // Validar que no sean lat0 y lng0
+        if (lat === "lat0" && lng === "lng0") {
+          document.getElementById('loading-message').textContent = 'No se pudo obtener una ubicación válida. Activa tu GPS o intenta nuevamente.';
+          return;
+        }
+
+        // Crear el iframe dinámicamente
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://form.jotform.com/251687013967668?latitud=${lat}&longitud=${lng}`;
+        iframe.allow = 'geolocation';
+        iframe.loading = 'lazy';
+        iframe.style.width = '100%';
+        iframe.style.height = '90vh';
+        iframe.style.border = 'none';
+
+        document.getElementById('iframe-container').appendChild(iframe);
+        document.getElementById('loading-message').style.display = 'none';
+        document.getElementById('iframe-container').style.display = 'block';
+      }, function(err) {
+        document.getElementById('loading-message').textContent = 'Error al obtener la ubicación. Por favor, permite el acceso a tu ubicación para continuar.';
+      });
+    } else {
+      document.getElementById('loading-message').textContent = 'Tu navegador no soporta geolocalización.';
+    }
+  </script>
+
+</body>
+</html>
