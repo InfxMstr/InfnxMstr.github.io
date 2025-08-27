@@ -33,14 +33,20 @@
     .back-button:hover {
       background: rgba(0, 255, 100, 0.2);
     }
+    #loading-message {
+      margin-top: 40px;
+      font-size: 1rem;
+      color: #888;
+    }
+    #iframe-container {
+      display: none;
+    }
   </style>
 </head>
 <body>
-  <iframe id="jot"
-    src="https://form.jotform.com/251146528825662?latitud_1=0&longitud_1=0"
-    allow="geolocation; camera"
-    loading="lazy">
-  </iframe>
+
+  <div id="loading-message">Cargando ubicación…</div>
+  <div id="iframe-container"></div>
 
   <a class="back-button" href="index.html">Regresar al WorkHub</a>
 
@@ -49,15 +55,29 @@
       navigator.geolocation.getCurrentPosition(function(pos) {
         const lat = pos.coords.latitude;
         const lng = pos.coords.longitude;
-        const iframe = document.getElementById('jot');
-        const srcBase = iframe.src.split('?')[0];
-        iframe.src = `${srcBase}?latitud_1=${lat}&longitud_1=${lng}`;
+
+        // Validar que no sean lat=0 y lng=0
+        if (lat === 0 && lng === 0) {
+          document.getElementById('loading-message').textContent = 'No se pudo obtener una ubicación válida. Activa tu GPS o intenta nuevamente.';
+          return;
+        }
+
+        // Crear el iframe dinámicamente
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://form.jotform.com/251146528825662?latitud_1=${lat}&longitud_1=${lng}`;
+        iframe.allow = 'geolocation; camera';
+        iframe.loading = 'lazy';
+
+        document.getElementById('iframe-container').appendChild(iframe);
+        document.getElementById('loading-message').style.display = 'none';
+        document.getElementById('iframe-container').style.display = 'block';
       }, function(err) {
-        console.warn('No se pudo obtener la ubicación:', err);
+        document.getElementById('loading-message').textContent = 'Error al obtener la ubicación. Por favor, permite el acceso a tu ubicación para continuar.';
       });
     } else {
-      console.warn('El navegador no soporta geolocalización.');
+      document.getElementById('loading-message').textContent = 'Tu navegador no soporta geolocalización.';
     }
   </script>
+
 </body>
 </html>
